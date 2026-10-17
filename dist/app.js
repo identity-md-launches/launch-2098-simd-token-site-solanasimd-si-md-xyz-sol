@@ -100,6 +100,7 @@ function updateMotionButtons() {
 }
 document.querySelectorAll('.motion-toggle').forEach((button) => button.addEventListener('click', () => {
   paused = !paused; document.body.classList.toggle('motion-paused', paused); updateMotionButtons();
+  if (!motionEnabled()) settleStepNumber();
 }));
 motionQuery.addEventListener('change', updateMotionButtons); updateMotionButtons();
 
@@ -156,6 +157,30 @@ document.querySelectorAll('[data-copy]').forEach((button) => button.addEventList
 
 const tabs = /** @type {NodeListOf<HTMLButtonElement>} */ (document.querySelectorAll('[role="tab"]'));
 let currentStep = 0;
+const stepNumber = element('#buy-art-number');
+/** @type {Animation | null} */
+let stepFade = null;
+function settleStepNumber() {
+  stepFade?.cancel(); stepFade = null;
+  stepNumber.textContent = String(currentStep + 1);
+}
+function updateStepNumber() {
+  const number = String(currentStep + 1);
+  const changed = stepNumber.textContent !== number;
+  stepFade?.cancel(); stepFade = null;
+  if (!changed || !motionEnabled()) { settleStepNumber(); return; }
+  const timing = { duration: 150, easing: 'cubic-bezier(.2,0,0,1)' };
+  const fadeOut = stepNumber.animate([{ opacity: 1 }, { opacity: 0 }], { ...timing, fill: 'forwards' });
+  stepFade = fadeOut;
+  fadeOut.onfinish = () => {
+    if (stepFade !== fadeOut) return;
+    stepNumber.textContent = number; fadeOut.cancel();
+    const fadeIn = stepNumber.animate([{ opacity: 0 }, { opacity: 1 }], timing);
+    stepFade = fadeIn;
+    fadeIn.onfinish = () => { if (stepFade === fadeIn) stepFade = null; };
+  };
+}
+motionQuery.addEventListener('change', () => { if (motionQuery.matches) settleStepNumber(); });
 /** @param {number} step @param {boolean} [focus] */
 function showStep(step, focus = false) {
   currentStep = step;
@@ -163,7 +188,7 @@ function showStep(step, focus = false) {
     tab.setAttribute('aria-selected', String(index === step)); tab.tabIndex = index === step ? 0 : -1;
     /** @type {HTMLElement} */ (element(`#buy-panel-${index + 1}`)).hidden = index !== step;
   });
-  element('#buy-art-number').textContent = String(step + 1);
+  updateStepNumber();
   element('#next-step').innerHTML = `${step === 2 ? 'Back to step 1' : 'Next step'} <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg>`;
   if (focus) tabs[step].focus();
 }
@@ -200,6 +225,16 @@ document.querySelectorAll('.magnetic').forEach((button) => {
 const ticks = [];
 /** @type {Map<Element, number>} */
 const numberFrames = new Map();
+const marketStats = /** @type {HTMLElement} */ (element('#market-stats'));
+function fitMarketStats() {
+  if (marketStats.hidden) return;
+  // Try the responsive columns first; a full amount must fit before we keep them.
+  marketStats.classList.remove('is-stacked');
+  const overflow = [...marketStats.querySelectorAll('dd')].some((value) => value.scrollWidth > value.clientWidth);
+  marketStats.classList.toggle('is-stacked', overflow);
+}
+new ResizeObserver(fitMarketStats).observe(marketStats);
+void document.fonts.ready.then(fitMarketStats);
 /** @param {HTMLElement} target @param {number} value @param {boolean} isPrice */
 function animateNumber(target, value, isPrice) {
   const previous = Number(target.dataset.value);
@@ -213,6 +248,7 @@ function animateNumber(target, value, isPrice) {
     target.textContent = formatUsd(previous + (value - previous) * (1 - (1 - progress) ** 3), isPrice);
     if (progress < 1 && motionEnabled()) numberFrames.set(target, requestAnimationFrame(frame));
     else { target.textContent = formatUsd(value, isPrice); numberFrames.delete(target); }
+    fitMarketStats();
   };
   numberFrames.set(target, requestAnimationFrame(frame));
 }
@@ -236,7 +272,7 @@ function drawChart() {
   const prices = ticks.map((tick) => tick.price), min = Math.min(...prices), max = Math.max(...prices);
   const points = ticks.map((tick, index) => ({ x: pad + (index / (ticks.length - 1)) * (end - pad), y: max === min ? 132 : 36 + (1 - (tick.price - min) / (max - min)) * 190, price: tick.price }));
   chart.replaceChildren();
-  chart.append(svgElement('path', { d: points.map((point, i) => `${i ? 'L' : 'M'}${point.x.toFixed(2)},${point.y.toFixed(2)}`).join(' '), fill: 'none', stroke: '#ccff00', 'stroke-width': 2, class: 'chart-line' }));
+  chart.append(svgElement('path', { d: points.map((point, i) => `${i ? 'L' : 'M'}${point.x.toFixed(2)},${point.y.toFixed(2)}`).join(' '), pathLength: 1, fill: 'none', stroke: '#ccff00', 'stroke-width': 2, class: 'chart-line' }));
   points.forEach((point, index) => {
     const size = point.price === min || point.price === max ? 18 : 12;
     // On long sessions keep the line readable while preserving first/last and extrema.
@@ -271,7 +307,8 @@ function renderCoin(coin) {
     row.hidden = value === null;
     if (value !== null) { visibleStats++; animateNumber(/** @type {HTMLElement} */ (row.querySelector('dd')), value, key === 'priceUsd'); }
   }
-  /** @type {HTMLElement} */ (element('#market-stats')).hidden = !visibleStats;
+  marketStats.hidden = !visibleStats;
+  fitMarketStats();
   const supply = element('#supply-value'), tokenomics = coin.tokenomics;
   if (tokenomics && tokenomics.totalSupply !== null) supply.textContent = new Intl.NumberFormat('en-US').format(tokenomics.totalSupply);
   else {

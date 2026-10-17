@@ -14,6 +14,7 @@ npx playwright install chromium webkit
 npm run typecheck
 npm run build
 npm test
+npm run test:revision
 npm run preview
 ```
 
@@ -35,6 +36,7 @@ On Linux, Playwright may also require its documented system browser libraries (`
 | `dist/` | Complete production export, included with the source |
 | `scripts/artwork.mjs` | Reproducible SVG compositions and browser rasterization for memes/header |
 | `tests/interactions.mjs` | Production-export interaction, layout, and accessibility checks |
+| `tests/revision.mjs` | Regression checks for long amounts, chart continuity, stable agent details, and step fades |
 | `DESIGN.md` | Implemented design system |
 | `artifacts/validation.md` | Review coverage, fixes, evidence, and limitations |
 
@@ -57,15 +59,17 @@ All local asset URLs are relative and were checked under `/preview/`. The root-r
 
 ## Actual validation
 
-The final production build and TypeScript's strict `checkJs` typecheck passed. The interaction suite passed **21 checks, zero failures**, using Chromium and WebKit. It covers real clipboard copying, all 24 agents, keyboard/touch controls, the mobile menu, all buying-guide panels, 30-second refresh using a test clock, initial/service/timeout/malformed/wrong-token failures, stale data, null tokenomics, six genuine PNG downloads, three X intents, local links/assets, and the 404 page.
+The revision's production build and TypeScript's strict `checkJs` typecheck passed. An initial run of the existing interaction suite passed **20 checks, zero failures**, in Chromium. The final rerun passed its first **18 checks**, then stopped at the live screenshot-evidence setup because the hosting feed returned HTTP 404 (`DEPLOYMENT_NOT_FOUND`); this external-service failure is retained in `artifacts/interaction-results.json`. The completed checks cover real clipboard copying, all 24 agents, keyboard controls, the mobile menu, all buying-guide panels, 30-second refresh using a test clock, initial/service/timeout/malformed/wrong-token failures, stale data, null tokenomics, six genuine PNG downloads, three X intents, local links/assets, and the 404 page. WebKit was attempted in the initial run but could not launch because required system libraries are unavailable on this machine.
+
+`npm run test:revision` passed **4 regression groups, zero failures**. Both reported long-market fixtures now have page widths equal to their 320/360px viewports, with complete amounts at the original 20px type size. Larger values also trigger stacking at 900/1440px, and smaller values restore the columns. All 24 agent selections preserve the hero positions at 320/360/390px in both motion modes. The chart remains continuous through 16 and 40 observations. The guide numeral fades out before replacement and in afterward; rapid selection, motion pause, and system reduced motion settle correctly. All four reviewer findings were reproduced before the fixes and answered in `.imd-responses.json`.
 
 Responsive checks passed at 320, 360, 375, 390, 620, 900, 1440, and 1920 CSS pixels. A separate 200% text-enlargement check passed at 390px. The product and complete main Buy button fit within the 390×844 first screen. Both pages were rendered at mobile and desktop widths. Axe found zero automated WCAG 2 A/AA, 2.1 AA, or 2.2 AA violations in the checked page state. This does not establish full accessibility compliance.
 
-The pinned `taste@1` probe was run on the export and on a subpath preview with the real hosting feed. It reports 13/16 raw passes; the three flags are adjudicated in the validation record: required Fira Mono prose, required verbatim em dashes, and a market-data definition label mistaken for a heading kicker. The layout, render, measured contrast, motion, targets, and metadata checks pass. The raw check summary is retained in `artifacts/taste-results.json`.
+The pinned `taste@1` probe was run on the export and on a preview while the real hosting feed was available. That live preview reports 13/16 raw passes; its flags are adjudicated in the validation record: required Fira Mono prose, required verbatim em dashes, and a market-data definition label mistaken for a heading kicker. The layout, render, measured contrast, motion, targets, and metadata checks pass. The static-only probe additionally reports the expected missing `/simd-coin.json` service. Both check summaries are retained in `artifacts/taste-results.json`.
 
-Evidence is in `artifacts/screenshots/`, `artifacts/interaction-results.json`, `artifacts/contrast.json`, and `artifacts/external-links.json`. Screenshots use an actual hosting-feed response, not the synthetic values isolated inside the tests. At validation the price, market cap, and liquidity fields were null; volume was a genuine zero. The populated price-history state was tested with explicitly synthetic test fixtures because the upstream service supplied no price quote.
+Evidence is in `artifacts/screenshots/`, `artifacts/interaction-results.json`, `artifacts/revision-before.json`, `artifacts/revision-results.json`, and `artifacts/contrast.json`. The `home-*`, `agent-hover`, and 404 screenshots use the actual hosting feed. At validation the price, market cap, and liquidity fields were null; volume was a genuine zero. Screenshots prefixed `revision-` explicitly use synthetic reviewer/regression fixtures to exercise long amounts and populated chart history; those values never enter the production export.
 
-The browser connector could not launch its configured Chrome distribution. Equivalent rendered checks were completed with locally installed Playwright Chromium. WebKit ran with browser libraries extracted into temporary directories; those tools, libraries, and caches are not deliverables. Native-device use, a screen-reader session, native browser zoom, RTL/localized layouts, and external trades were not performed. DexScreener and Solscan returned HTTP 403 to automated link probes, so their page contents were not certified; the URLs and their assigned contract/pair destinations were checked. The launchpad, X profile, and pump.fun destination returned HTTP 200.
+The browser connector successfully rendered the export at 390/360px and showed no console errors; local Playwright Chromium supplied the automated checks and saved evidence. Optional tools and browser downloads were installed under `/tmp`, outside the repository. WebKit's dependency dry run could not resolve the required packages, so Safari behavior was not reverified. Native-device use, a screen-reader session, native browser zoom, RTL/localized layouts, and external trades were not performed. External trading/social destinations were not opened or certified in this revision; feed-derived destination handling and local asset/anchor links were tested.
 
 ## Submission budget
 

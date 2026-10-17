@@ -9,6 +9,7 @@
     "preview": "node scripts/preview.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "node tests/interactions.mjs",
+    "test:revision": "node tests/revision.mjs",
     "artwork": "node scripts/artwork.mjs",
     "budget": "node scripts/budget.mjs"
   },
