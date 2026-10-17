@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#030303">
+  <title>solanaSIMD ($SOLSIMD) · Built by the swarm</title>
+  <meta name="description" content="An unofficial demo token on Solana. One form, an AI swarm, a very existential mustache. Explore the build, live market data, and $SOLSIMD meme lab.">
+  <link rel="canonical" href="https://solanasimd.si-md.xyz/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="solanaSIMD">
+  <meta property="og:title" content="solanaSIMD · Built by the swarm in one form.">
+  <meta property="og:description" content="The unofficial $SOLSIMD demo token on Solana. A specimen of swarm construction. No roadmap. No promises.">
+  <meta property="og:url" content="https://solanasimd.si-md.xyz/">
+  <meta property="og:image" content="https://solanasimd.si-md.xyz/assets/logo.webp">
+  <meta property="og:image:width" content="768">
+  <meta property="og:image:height" content="768">
+  <meta property="og:image:alt" content="The solanaSIMD medallion: wild hair, existential mustache, very little urgency.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="solanaSIMD ($SOLSIMD) · Built by the swarm">
+  <meta name="twitter:description" content="One form. One swarm. Your meme. An unofficial demo token on Solana, built by the Identity.md swarm.">
+  <meta name="twitter:image" content="https://solanasimd.si-md.xyz/dex-header.png">
+  <meta name="twitter:image:alt" content="solanaSIMD medallion and $SOLSIMD on a black and lime grid.">
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link rel="preload" href="./assets/fonts/orbitron-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/fonts/fira-mono-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol>
+      <symbol id="copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M15 8V3H3v12h5"/></symbol>
+      <symbol id="chevron" viewBox="0 0 24 24"><path d="m8 4 8 8-8 8"/></symbol>
+      <symbol id="download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+      <symbol id="coin" viewBox="0 0 320 320"><image href="./assets/logo.webp" width="320" height="320"/></symbol>
+      <symbol id="head" viewBox="0 0 160 160"><image href="./assets/logo.webp" x="-31" y="-33" width="224" height="224"/></symbol>
+      <filter id="lime-glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <pattern id="fine-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0v32" fill="none" stroke="#222" stroke-width=".6"/></pattern>
+    </defs>
+  </svg>
+
+  <aside id="banner-demo" class="demo-banner" aria-label="Unofficial demo token notice">
+    <span class="banner-eyes" aria-hidden="true"><svg viewBox="160 140 700 360" preserveAspectRatio="xMidYMid slice"><image href="./assets/logo.webp" width="1024" height="1024"/><path d="M345 453h120m75 4h110" stroke="#ccff00" stroke-width="10" filter="url(#lime-glow)"/></svg></span>
+    <div><strong>Unofficial Demo Token</strong><p>$SOLSIMD is not the official $SIMD. For meme science only, not for roadmapping.</p></div>
+  </aside>
+
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="#hero" aria-label="solanaSIMD home"><img src="./assets/favicon.png" alt="" width="36" height="36"><span>solana<span class="brand-accent">SIMD</span></span></a>
+      <div id="nav-links" class="nav-links">
+        <a href="#what-swarmed">The build</a><a href="#chart">Market</a><a href="#meme-wall">Meme lab</a><a href="#how-to-buy">How to buy</a>
+      </div>
+      <a class="nav-trade" data-buy href="https://pump.fun/coin/GCqB4jMYPJ5fYNVAu2vrRA9qTBtzjSHtXqjVC1eQLBsU" target="_blank" rel="noopener noreferrer">Buy $SOLSIMD <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <button type="button" class="menu-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu"><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="hero" class="hero shell" aria-labelledby="hero-title">
+      <div class="agent-stage">
+        <div class="stage-aside stage-aside-start" aria-hidden="true"><span class="crosshair">+</span><p>A specimen of<br>swarm construction.</p><span class="stage-rule"></span><p>Wild hair,<br>structured output.</p></div>
+        <div class="agent-board" id="agent-board">
+          <svg class="circuit" viewBox="0 0 640 400" fill="none" aria-hidden="true"><path d="M0 40h100l40 40h160l60-60h280M0 200h80l80 80h320l80-80h80M0 340h160l40-40h160l80 80h200"/><path d="M120 0v400M320 0v400M520 0v400"/><circle cx="140" cy="80" r="4"/><circle cx="480" cy="280" r="4"/><circle cx="440" cy="380" r="4"/></svg>
+          <div class="agent-grid" id="agent-grid" role="group" aria-label="AI agent grid. Use arrow keys to explore 24 illustrated build steps."></div>
+          <noscript><div class="no-js-agents"><img src="./assets/logo.webp" width="160" height="160" alt="The solanaSIMD medallion"><p>Enable JavaScript to explore the interactive agent grid.</p></div></noscript>
+          <div class="board-edge edge-tl" aria-hidden="true"></div><div class="board-edge edge-tr" aria-hidden="true"></div><div class="board-edge edge-bl" aria-hidden="true"></div><div class="board-edge edge-br" aria-hidden="true"></div>
+        </div>
+        <div class="stage-aside stage-aside-end"><span class="network-indicator"><i></i> Solana</span><p>Minted on pump.fun,<br>made of memes.</p><button type="button" class="motion-toggle text-control" aria-pressed="false">Pause motion <span aria-hidden="true">Ⅱ</span></button></div>
+      </div>
+      <div class="agent-caption"><span id="agent-hint">Hover, tap, or focus an agent to inspect its build step.</span><button type="button" class="mobile-motion motion-toggle text-control" aria-pressed="false">Pause motion <span aria-hidden="true">Ⅱ</span></button></div>
+      <div class="agent-detail" id="agent-detail" aria-live="polite"><span id="agent-role"></span><span id="agent-description">An illustrated build, not a live agent monitor.</span></div>
+      <div class="hero-content">
+        <h1 id="hero-title">Built by the swarm<br>in <span>one form.</span></h1>
+        <p class="hero-definition">solanaSIMD ($SOLSIMD). An unofficial demo token on Solana.</p>
+        <div class="hero-actions"><a class="button button-primary magnetic" data-buy href="https://pump.fun/coin/GCqB4jMYPJ5fYNVAu2vrRA9qTBtzjSHtXqjVC1eQLBsU" target="_blank" rel="noopener noreferrer">Buy $SOLSIMD <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><a class="button button-secondary" data-chart href="https://dexscreener.com/solana/GCqB4jMYPJ5fYNVAu2vrRA9qTBtzjSHtXqjVC1eQLBsU" target="_blank" rel="noopener noreferrer">View chart <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+        <div class="contract-strip"><span>Contract</span><code>GCqB4jMYPJ5fYNVAu2vrRA9qTBtzjSHtXqjVC1eQLBsU</code><button type="button" data-copy="contract" aria-label="Copy contract address"><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span class="copy-label">Copy</span></button></div>
+        <p class="hero-copy">Fill out a single field on si-md.xyz/launchpad and an army of AI agents spins up: generating your contract, logo, and even this page—no humans or vibes required. $SOLSIMD was minted as a specimen of swarm construction. All live, all memetic, all neon.</p>
+      </div>
+      <div class="hero-bottom"><span>Unofficial, unapologetic, unmistakably SIMD.</span><a href="#what-swarmed">Inspect the build <span aria-hidden="true">↓</span></a></div>
+    </section>
+
+    <section id="what-swarmed" class="section shell" aria-labelledby="build-title">
+      <div class="section-heading reveal"><span class="section-number" aria-hidden="true">01 /</span><h2 id="build-title">What the Swarm Built</h2><span class="heading-line" aria-hidden="true"></span></div>
+      <div class="build-grid">
+        <article class="build-item reveal"><div class="build-art"><svg viewBox="0 0 400 300" role="img" aria-label="solanaSIMD coin with a contract scroll"><use href="#coin" x="90" y="12" width="250" height="250" transform="rotate(-12 215 137)"/><g transform="translate(42 131) rotate(8)"><path d="M0 0h168v124H0z" fill="#0c0e08" stroke="#ccff00"/><path d="M15 20h100m-100 17h138m-138 17h100m-100 17h70" stroke="#7b8f4b"/><path d="m104 84 12 12 26-30" fill="none" stroke="#ccff00" stroke-width="3"/><text x="15" y="107" fill="#ccff00" font-size="16" font-family="monospace">SOLSIMD.sol</text></g></svg></div><h3>Contract, constructed.</h3><p>pump.fun contract <a class="inline-link" href="https://solscan.io/token/GCqB4jMYPJ5fYNVAu2vrRA9qTBtzjSHtXqjVC1eQLBsU" target="_blank" rel="noopener noreferrer">Check onchain ↗</a></p><span class="item-foot">Solana · pump.fun</span></article>
+        <article class="build-item reveal"><div class="build-art"><svg viewBox="0 0 400 300" role="img" aria-label="Medallion with an electric lime outline around its wild hair"><circle cx="200" cy="148" r="124" fill="#101405"/><use href="#coin" x="65" y="13" width="270" height="270"/><path class="hair-trace" d="m109 173-17-30 29-4-20-24 33-1-8-30 33 10 7-31 22 23 17-32 16 29 28-20-4 34 32-9-8 25 29 4-17 23 21 15-22 16" fill="none" stroke="#ccff00" stroke-width="3" filter="url(#lime-glow)"/><path d="M36 55h40m-20-20v40m268 157h40m-20-20v40" stroke="#666"/></svg></div><h3>Identity, hallucinated.</h3><p>Einstein-pepe medallion logo minted from sigmoid daydreams</p><span class="item-foot">One existential mustache</span></article>
+        <article class="build-item reveal"><div class="build-art"><svg viewBox="0 0 400 300" role="img" aria-label="Medallion emerging from a lime code window"><rect x="32" y="48" width="336" height="206" rx="4" fill="#0c0c0c" stroke="#444"/><path d="M32 80h336" stroke="#444"/><circle cx="49" cy="64" r="3" fill="#ccff00"/><circle cx="62" cy="64" r="3" fill="#666"/><circle cx="75" cy="64" r="3" fill="#666"/><path d="m66 115-16 16 16 16m26-32 16 16-16 16m-12-37-8 43M50 179h100m-100 14h79m-79 14h120" fill="none" stroke="#ccff00" stroke-width="2"/><use href="#coin" x="171" y="79" width="177" height="177" transform="rotate(12 260 167)"/></svg></div><h3>Website, swarmed.</h3><p>This whole site, spawned from AI</p><span class="item-foot">You are looking at the output</span></article>
+      </div>
+      <p class="section-note">Tap any agent head to see its specific build step explained—nothing hand-edited, everything on autopilot.</p>
+    </section>
+
+    <section id="chart" class="section market-section" aria-labelledby="market-title"><div class="shell">
+      <div class="section-heading reveal"><span class="section-number" aria-hidden="true">02 /</span><h2 id="market-title">$SOLSIMD Price &amp; Chart</h2><span class="heading-line" aria-hidden="true"></span></div>
+      <div class="market-intro"><p>Live data direct from pump.fun (demo only — coin is for experimental meme action, not a roadmap).</p><a class="text-link" data-chart href="https://dexscreener.com/solana/GCqB4jMYPJ5fYNVAu2vrRA9qTBtzjSHtXqjVC1eQLBsU" target="_blank" rel="noopener noreferrer">Open full chart <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+      <div class="feed-bar"><span class="feed-indicator"><i></i><span id="feed-status" role="status">Requesting market data</span></span><button class="text-control" id="refresh-data" type="button">Refresh data <span aria-hidden="true">↻</span></button></div>
+      <dl class="market-stats" id="market-stats" hidden><div data-stat="priceUsd" hidden><dt>Price / USD</dt><dd></dd></div><div data-stat="marketCap" hidden><dt>Market cap</dt><dd></dd></div><div data-stat="volume24h" hidden><dt>24h volume</dt><dd></dd></div><div data-stat="liquidityUsd" hidden><dt>Liquidity</dt><dd></dd></div></dl>
+      <div class="price-chart" id="price-chart"><div class="chart-empty" id="chart-empty"><svg viewBox="0 0 120 100" aria-hidden="true"><use href="#coin" x="25" y="5" width="70" height="70"/><path d="M10 90h100M10 90V20" fill="none" stroke="#ccff00"/><path d="M18 79h84" stroke="#444" stroke-dasharray="3 6"/></svg><p id="chart-empty-title">Every chart starts somewhere.</p><p id="chart-empty-copy">Price history appears here as live updates arrive. Explore earlier activity on the full chart.</p><a class="text-link" data-chart href="https://dexscreener.com/solana/GCqB4jMYPJ5fYNVAu2vrRA9qTBtzjSHtXqjVC1eQLBsU" target="_blank" rel="noopener noreferrer">View on DexScreener ↗</a></div><svg id="tick-chart" viewBox="0 0 1080 280" role="img" aria-label="Observed $SOLSIMD price updates in this browser session" hidden></svg></div>
+      <div class="chart-foot"><p id="chart-caption">This chart uses real price observations from your browser session.</p><span>Refreshes every 30 seconds</span></div>
+    </div></section>
+
+    <section id="launch-your-own" class="section shell launch-section" aria-labelledby="launch-title">
+      <div class="launch-copy reveal"><div class="section-heading"><span class="section-number" aria-hidden="true">03 /</span><h2 id="launch-title">Launch Your Own<br>(Better) Meme</h2></div><p>Want your own swarm-spun coin? Head to si-md.xyz/launchpad and follow one form, one click. Instant logo, contract, and showcase—scientifically unserious.</p><a class="button button-secondary magnetic" href="https://si-md.xyz/launchpad" target="_blank" rel="noopener noreferrer">Launch your own <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><p class="launch-hook">Leaning in: one form, one swarm, your meme—welcome to the age of launchbot everything.</p></div>
+      <div class="launch-art reveal"><svg viewBox="0 0 520 420" role="img" aria-label="Three segments of the logo type, paint, and stamp a contract"><defs><clipPath id="slice-left"><path d="M260 195 30 30v370h230z"/></clipPath><clipPath id="slice-top"><path d="M260 195 30 30h460z"/></clipPath><clipPath id="slice-right"><path d="m260 195 230-165v370H260z"/></clipPath></defs><circle cx="260" cy="195" r="170" fill="url(#fine-grid)" stroke="#333"/><g class="launch-slice slice-a" clip-path="url(#slice-left)"><use href="#coin" x="82" y="23" width="344" height="344"/></g><g class="launch-slice slice-b" clip-path="url(#slice-top)"><use href="#coin" x="88" y="15" width="344" height="344"/></g><g class="launch-slice slice-c" clip-path="url(#slice-right)"><use href="#coin" x="96" y="25" width="344" height="344"/></g><g class="typing-prop" stroke="#ccff00" fill="#101405"><path d="m24 292 146-22 31 66-156 25z"/><path d="m47 305 117-18m-110 32 119-19m-107 32 84-13"/><path d="m100 258 22 33m-9-42 23 38" stroke-width="4"/></g><g class="painting-prop" stroke="#ccff00" fill="#101405"><path d="m358 93 71-57 14 18-71 57z"/><path d="m358 93-16 37 30-19" fill="#ccff00"/><path d="M388 130q52 14 55 65" fill="none" stroke-width="5"/></g><g class="stamping-prop" transform="translate(339 286) rotate(8)" stroke="#ccff00" fill="#101405"><path d="M0 0h113v91H0z"/><path d="M32 40h52v15H32zm12-21h28v21H44z"/><path d="m30 74 12 8 33-17" fill="none" stroke-width="2"/></g><path d="M245 15v28m0 326v28M68 195H40m438 0h-28" stroke="#ccff00"/></svg></div>
+    </section>
+
+    <section id="how-to-buy" class="section shell" aria-labelledby="buy-title">
+      <div class="section-heading reveal"><span class="section-number" aria-hidden="true">04 /</span><h2 id="buy-title">How to Buy (If You Must)</h2><span class="heading-line" aria-hidden="true"></span></div>
+      <div class="buy-layout"><div class="buy-art"><svg viewBox="0 0 400 340" role="img" aria-label="Medallion holding the current guide step"><use href="#coin" x="52" y="45" width="275" height="275"/><path d="m286 234 56-50 10-98" fill="none" stroke="#f5f5f5" stroke-width="13" stroke-linecap="round"/><path d="M304 27h80v89h-80z" fill="#0c0c0c" stroke="#ccff00"/><text id="buy-art-number" x="344" y="92" text-anchor="middle" fill="#ccff00" font-size="64" font-family="monospace">1</text><path d="M30 327h340" stroke="#444"/></svg><span>Experimental meme action, at your discretion.</span></div><div class="buy-guide"><div class="step-controls" role="tablist" aria-label="How to buy steps"><button type="button" role="tab" aria-selected="true" aria-controls="buy-panel-1" id="buy-tab-1" tabindex="0">1. Wallet</button><button type="button" role="tab" aria-selected="false" aria-controls="buy-panel-2" id="buy-tab-2" tabindex="-1">2. Find</button><button type="button" role="tab" aria-selected="false" aria-controls="buy-panel-3" id="buy-tab-3" tabindex="-1">3. Trade</button></div>
+        <div class="step-panel" id="buy-panel-1" role="tabpanel" aria-labelledby="buy-tab-1" tabindex="0"><h3>Connect your Solana wallet on pump.fun</h3><p>Open pump.fun and connect there. Have a Solana wallet and enough SOL for your trade and network fees.</p><p class="small-note">This website never connects to your wallet.</p></div>
+        <div class="step-panel" id="buy-panel-2" role="tabpanel" aria-labelledby="buy-tab-2" tabindex="0" hidden><h3>Search 'solanaSIMD' or '$SOLSIMD'</h3><p>Check the full contract address below before you trade. Token names can be copied; the contract identifies this specimen.</p></div>
+        <div class="step-panel" id="buy-panel-3" role="tabpanel" aria-labelledby="buy-tab-3" tabindex="0" hidden><h3>Trade— knowing all fees from creator go 100% onchain to 8HLm…7JqW.</h3><p>Review the price, fees, and transaction in your wallet on pump.fun. An unofficial demo token has no promised outcome.</p></div>
+        <div class="guide-actions"><button class="button button-secondary" id="next-step" type="button">Next step <svg class="icon" aria-hidden="true"><use href="#chevron"/></svg></button><a class="text-link" data-buy href="https://pump.fun/coin/GCqB4jMYPJ5fYNVAu2vrRA9qTBtzjSHtXqjVC1eQLBsU" target="_blank" rel="noopener noreferrer">Open pump.fun ↗</a></div>
+      </div></div>
+      <div class="contract-strip contract-large"><span>Solana contract</span><code>GCqB4jMYPJ5fYNVAu2vrRA9qTBtzjSHtXqjVC1eQLBsU</code><button type="button" data-copy="contract" aria-label="Copy Solana contract address"><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span class="copy-label">Copy address</span></button></div>
+    </section>
+
+    <section id="tokenomics" class="section token-section" aria-labelledby="tokenomics-title"><div class="shell">
+      <div class="section-heading reveal"><span class="section-number" aria-hidden="true">05 /</span><h2 id="tokenomics-title">Tokenomics<br>(There’s Almost None)</h2><span class="heading-line" aria-hidden="true"></span></div>
+      <div class="token-layout"><div class="token-copy"><ul class="token-principles"><li>Fair launch: no team, no presale, contract on Solana via pump.fun bonding curve.</li><li>Creator trading fees: 100% → 8HLm…7JqW for demo transparency.</li><li>No future, just a perfect agentic present.</li></ul><dl class="token-data"><div><dt>Total supply</dt><dd id="supply-value"><a data-chart href="https://dexscreener.com/solana/GCqB4jMYPJ5fYNVAu2vrRA9qTBtzjSHtXqjVC1eQLBsU" target="_blank" rel="noopener noreferrer">see the chart ↗</a></dd></div><div><dt>Holders</dt><dd><a data-chart href="https://dexscreener.com/solana/GCqB4jMYPJ5fYNVAu2vrRA9qTBtzjSHtXqjVC1eQLBsU" target="_blank" rel="noopener noreferrer">see the chart ↗</a></dd></div><div id="fixed-supply-row" hidden><dt>Supply type</dt><dd id="fixed-supply-value"></dd></div><div id="decimals-row" hidden><dt>Decimals</dt><dd id="decimals-value"></dd></div></dl><div class="allocation" id="allocation" hidden><div class="allocation-bar" id="allocation-bar" aria-hidden="true"></div><ul id="allocation-legend"></ul></div><p class="small-note" id="team-note" hidden></p><p class="small-note" id="trading-fee" hidden></p></div>
+      <div class="fee-art"><svg viewBox="0 0 440 330" role="img" aria-label="Split medallion with a treasury, an empty half, and an arrow to the creator fee address"><defs><clipPath id="fee-left"><rect x="0" y="0" width="212" height="330"/></clipPath><clipPath id="fee-right"><rect x="224" y="0" width="216" height="330"/></clipPath></defs><g clip-path="url(#fee-left)"><use href="#coin" x="68" y="10" width="290" height="290"/></g><g clip-path="url(#fee-right)" opacity=".2"><use href="#coin" x="79" y="10" width="290" height="290"/></g><g transform="translate(83 145)" fill="#101405" stroke="#ccff00" stroke-width="2"><path d="M0 25q0-25 55-25t55 25v58H0z"/><path d="M0 30h110M45 0v83m20-83v83"/><path d="M48 38h15v21H48z" fill="#ccff00"/><text x="55" y="110" text-anchor="middle" fill="#ccff00" stroke="none" font-size="20" font-family="monospace">100%</text></g><path class="fee-arrow" d="M245 168h131m-17-17 17 17-17 17" fill="none" stroke="#ccff00" stroke-width="3"/></svg><div class="fee-address"><span>Creator fee recipient</span><code>8HLm…7JqW</code><p>Abbreviated as supplied by the creator.</p></div></div></div>
+    </div></section>
+
+    <section id="meme-wall" class="section shell" aria-labelledby="meme-title">
+      <div class="section-heading reveal"><span class="section-number" aria-hidden="true">06 /</span><h2 id="meme-title">The meme lab.</h2><span class="heading-line" aria-hidden="true"></span></div>
+      <div class="meme-intro"><p>Peer-reviewed by absolutely no one.<br>Take a specimen. Spread the science.</p><span>Six original-logo experiments, ready to download as PNG.</span></div>
+      <div class="meme-grid">
+        <article class="meme-item reveal"><a class="meme-image mustache-meme" href="./assets/memes/mustache.png" download="solanasimd-mustache.png" aria-label="Download AI built this coin meme as PNG"><img src="./assets/memes/mustache.webp" alt="A close crop of the coin’s mustache with electric lime highlights" width="720" height="600" loading="lazy" decoding="async"></a><div class="meme-caption"><h3>AI built this coin. The mustache built the legend.</h3><a href="./assets/memes/mustache.png" download="solanasimd-mustache.png" aria-label="Download mustache meme as PNG"><svg class="icon" aria-hidden="true"><use href="#download"/></svg></a></div></article>
+        <article class="meme-item reveal"><a class="meme-image" href="./assets/memes/builders.png" download="solanasimd-builders.png" aria-label="Download One form meme as PNG"><img src="./assets/memes/builders.webp" alt="An agent grid wearing construction helmets, carrying a form and keyboard" width="720" height="600" loading="lazy" decoding="async"></a><div class="meme-caption"><h3>One form. Infinite agents. Zero promises.</h3><a href="./assets/memes/builders.png" download="solanasimd-builders.png" aria-label="Download builders meme as PNG"><svg class="icon" aria-hidden="true"><use href="#download"/></svg></a></div></article>
+        <article class="meme-item reveal"><a class="meme-image" href="./assets/memes/homework.png" download="solanasimd-homework.png" aria-label="Download AI homework meme as PNG"><img src="./assets/memes/homework.webp" alt="The coin sits at a neon desk with folded arms and an A+ test paper" width="720" height="600" loading="lazy" decoding="async"></a><div class="meme-caption"><h3>When AI does your meme homework:</h3><a href="./assets/memes/homework.png" download="solanasimd-homework.png" aria-label="Download homework meme as PNG"><svg class="icon" aria-hidden="true"><use href="#download"/></svg></a></div></article>
+        <article class="meme-item reveal"><a class="meme-image" href="./assets/memes/fair-meme.png" download="solanasimd-fair-meme.png" aria-label="Download fair launch meme as PNG"><img src="./assets/memes/fair-meme.webp" alt="A half-classic, half-lime medallion with sunglasses and an abstract chart" width="720" height="600" loading="lazy" decoding="async"></a><div class="meme-caption"><h3>Fair launch? More like fair meme.</h3><a href="./assets/memes/fair-meme.png" download="solanasimd-fair-meme.png" aria-label="Download fair launch meme as PNG"><svg class="icon" aria-hidden="true"><use href="#download"/></svg></a></div></article>
+        <article class="meme-item reveal"><a class="meme-image" href="./assets/memes/transparency.png" download="solanasimd-transparency.png" aria-label="Download creator fee meme as PNG"><img src="./assets/memes/transparency.webp" alt="The coin holds a translucent lime address tape lit by its mustache" width="720" height="600" loading="lazy" decoding="async"></a><div class="meme-caption"><h3>Creator fee 100% onchain. Transparency flex.</h3><a href="./assets/memes/transparency.png" download="solanasimd-transparency.png" aria-label="Download transparency meme as PNG"><svg class="icon" aria-hidden="true"><use href="#download"/></svg></a></div></article>
+        <article class="meme-item reveal"><a class="meme-image" href="./assets/memes/innocent.png" download="solanasimd-innocent.png" aria-label="Download swarm-built meme as PNG"><img src="./assets/memes/innocent.webp" alt="A grid of wide-eyed medallions, each with both hands raised innocently" width="720" height="600" loading="lazy" decoding="async"></a><div class="meme-caption"><h3>Swarm-built means no one to blame.</h3><a href="./assets/memes/innocent.png" download="solanasimd-innocent.png" aria-label="Download innocent swarm meme as PNG"><svg class="icon" aria-hidden="true"><use href="#download"/></svg></a></div></article>
+      </div>
+    </section>
+
+    <section id="community" class="section shell community-section" aria-labelledby="community-title"><div class="community-copy reveal"><h2 id="community-title">Pass it to the swarm.</h2><p>One demo token. A shared appreciation for crisp grids and existential mustaches.</p><a class="text-link" id="community-x" href="https://x.com/SuperIMD_eth" target="_blank" rel="noopener noreferrer">Follow @SuperIMD_eth <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><a class="text-link" id="community-telegram" hidden target="_blank" rel="noopener noreferrer">Join Telegram <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div><div class="share-controls"><p>Choose your dispatch.</p><a class="share-intent" href="https://x.com/intent/tweet?text=Built%20by%20the%20swarm%20in%20one%20form.%20Meet%20the%20unofficial%20%24SOLSIMD%20demo%20token%20on%20Solana.&amp;url=https%3A%2F%2Fsolanasimd.si-md.xyz%2F" target="_blank" rel="noopener noreferrer">Share the specimen <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><a class="share-intent" href="https://x.com/intent/tweet?text=One%20form.%20Infinite%20agents.%20Zero%20promises.%20%24SOLSIMD%20is%20unofficial%20meme%20science.&amp;url=https%3A%2F%2Fsolanasimd.si-md.xyz%2F" target="_blank" rel="noopener noreferrer">Share the swarm <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><a class="share-intent" href="https://x.com/intent/tweet?text=AI%20built%20this%20coin.%20The%20mustache%20built%20the%20legend.%20Explore%20the%20unofficial%20%24SOLSIMD%20meme%20lab.&amp;url=https%3A%2F%2Fsolanasimd.si-md.xyz%2F" target="_blank" rel="noopener noreferrer">Share the mustache <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><button type="button" class="text-control copy-link" data-copy="link"><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span class="copy-label">Copy website link</span></button></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="shell"><div class="footer-top"><a class="brand" href="#hero">solana<span class="brand-accent">SIMD</span></a><span>For meme science only.</span><a href="#hero" class="text-link">Back to the grid ↑</a></div><p>Website built by the Identity.md swarm on <a href="https://si-md.xyz" target="_blank" rel="noopener noreferrer">si-md.xyz</a> · not financial advice</p><p class="footer-disclaimer">$SOLSIMD is an unofficial demo token. It is not the official $SIMD on Robinhood Chain. No roadmap. No promises.</p></div></footer>
+  <div id="copy-status" class="copy-status" role="status" aria-live="polite" hidden><span id="copy-message"></span><button type="button" id="dismiss-notice" aria-label="Dismiss copy notice">Dismiss</button></div>
+  <noscript><p class="noscript-note">JavaScript enables the agent grid, copy controls, and live data. All trading links and PNG downloads work without it.</p></noscript>
+</body>
+</html>
